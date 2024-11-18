@@ -7,14 +7,17 @@ For information about contributing to Autograder.io, see our
 Follow the [dev stack setup tutorial](https://github.com/eecs-autograder/autograder-full-stack/blob/master/docs/development_setup.md) for the [autograder-full-stack repo](https://github.com/eecs-autograder/autograder-full-stack).
 
 ## Dev commands
-The unit tests currently support Node.js version 16 (newer versions may work too).
-You can install this version with [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md)
+Our CI is currently configured to use NodeJS 16.
+The component tests (which now use vitest as their runner) should work with Node 20,
+but `npm run build` (which still uses vue-cli-services) will ONLY work with Node 16
+The component tests currently use Node.js version 20 (newer versions may work too).
+You can install specific node versions with [NVM](https://github.com/nvm-sh/nvm/blob/master/README.md)
 by running:
 ```
 nvm install 16
 ```
 
-To run the unit tests (with coverage):
+To run the component tests:
 ```
 npm test
 ```
@@ -31,8 +34,8 @@ In addition to the items listed here, all source code must follow our
 
 We are in the process of formatting the codebase using Prettier.
 At this time, only apply Prettier to the following:
-- New test cases wrritten with Cypress
 - New components written using the composition API
+- Test cases for new components
 - Components being converted to use the composition API
 Add the names of such files to the Prettier and eslint commands in static_analysis.bash.
 

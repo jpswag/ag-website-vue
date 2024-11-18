@@ -1,6 +1,7 @@
 set -ex
 
 npx prettier --check \
-    './*.js'
+    './*.js' \
+    './*.ts'
 
 ./check_subscribe_unsubscribe.py 'src/**/*.vue'
