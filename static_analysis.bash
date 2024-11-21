@@ -1,7 +1,6 @@
 set -ex
 
 npx eslint \
-    'src/**/*.cy.ts' \
     'tests/e2e/**/*.ts'
 
 npx prettier --check \

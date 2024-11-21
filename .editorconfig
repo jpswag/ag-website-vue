@@ -19,5 +19,5 @@ indent_size = 4
 [tests/e2e/**.ts]
 indent_size = 2
 
-[*.{html,yml,yaml,vue,json,js,cy.ts}]
+[*.{html,yml,yaml,vue,json,js}]
 indent_size = 2

@@ -1,4 +1,9 @@
-import { Course, HttpClient, NewCourseData, Semester } from "ag-client-typescript";
+import {
+  Course,
+  HttpClient,
+  NewCourseData,
+  Semester,
+} from "ag-client-typescript";
 import * as child_process from "child_process";
 import * as lodash from "lodash";
 import { BrowserContext } from "playwright/test";
@@ -6,7 +11,7 @@ import * as uuid from "uuid";
 
 // IMPORTANT: Keep the base url up to date with the value in playwright.config.ts.
 // The domains have to match exactly.
-const BASE_URL = 'http://127.0.0.1:8080';
+const BASE_URL = "http://127.0.0.1:8080";
 
 export const PYTHON = "python3";
 export const CONTAINER_NAME = "ag-vue-e2e-django";
@@ -32,7 +37,7 @@ export function unique_name(prefix: string) {
 // In the most common case (a superuser creating a course), we
 // can just have the make_course helper function below call this function.
 export function api_fake_auth(username: string = SUPERUSER_NAME) {
-  HttpClient.get_instance().set_base_url(BASE_URL + '/api/');
+  HttpClient.get_instance().set_base_url(BASE_URL + "/api/");
   HttpClient.get_instance().set_default_headers({
     // Note: Make sure the test server is using fake authentication.
     Cookie: `username=${username}`,
