@@ -1,5 +1,5 @@
 <template>
-  <div ref="single-course-component" class="single-course-component">
+  <div ref="single-course-component" class="single-course-component" aria-label="course">
     <div class="entity">
       <router-link :to="`/web/course/${course.pk}`"
                    class="info course-info"
@@ -11,7 +11,9 @@
       <div class="toolbox" v-if="is_admin">
         <div class="clone-course tool-icon"
              @click="d_show_clone_course_modal = true"
-             :title="'Clone ' + course.name">
+             @keypress.enter="d_show_clone_course_modal = true"
+             :title="'Clone ' + course.name"
+             tabindex="0">
           <i class="fas fa-copy"> </i>
         </div>
         <router-link :to="`/web/course_admin/${course.pk}`"

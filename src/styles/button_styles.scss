@@ -12,10 +12,6 @@
     padding: .375rem .75rem;
 }
 
-.button:focus {
-    outline: none;
-}
-
 .button:disabled {
     cursor: not-allowed;
     text-shadow: none;

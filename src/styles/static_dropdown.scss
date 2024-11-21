@@ -36,5 +36,9 @@
         &:hover .menu {
             display: block;
         }
+
+        &:focus-within .menu {
+            display: block;
+        }
     }
 }

@@ -20,3 +20,8 @@ yarn-error.log*
 *.sln
 *.sw*
 coverage
+
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
