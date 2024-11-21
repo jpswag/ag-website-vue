@@ -76,5 +76,6 @@ jobs:
         cache: 'npm'
 
     - run: docker compose -f e2e_test_stack/docker-compose.yml build
+    - run: docker compose -f e2e_test_stack/docker-compose.yml pull
     - run: npm ci
     - run: npm run e2e:once
