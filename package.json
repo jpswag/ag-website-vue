@@ -2,15 +2,31 @@
   "name": "ag-website-vue",
   "version": "2024.08.0",
   "private": true,
+  "scripts_comments": {
+    "lint": "Run linters, e.g., eslint and prettier.",
+    "build": [
+      "Compile the Vue application (includes type checking). ",
+      "Used for type checking in development and for building the application for production."
+    ],
+    "test": "Run unit tests.",
+    "e2e:serve": "Run the e2e stack in the foreground.",
+    "e2e:served": "Run the e2e stack in the background.",
+    "e2e": "Run the e2e tests. Use e2e:serve or e2e:served to start the e2e stack first.",
+    "e2e:once": [
+      "Starts the e2e stack, runs the e2e tests, and stops the e2e stack.",
+      "Mainly used on CI."
+    ],
+    "serve": "Starts the Vue dev server. Used by the 'website' dev Dockerfile."
+  },
   "scripts": {
-    "serve": "vue-cli-service serve",
     "lint": "./static_analysis.bash",
     "build": "vue-cli-service build",
     "test": "python3 run_tests.py",
     "e2e:serve": "docker compose -f e2e_test_stack/docker-compose.yml up",
     "e2e:served": "npm run e2e:serve -- -d",
     "e2e": "playwright test",
-    "e2e:once": "start-server-and-test e2e:serve http://localhost:8080 e2e"
+    "e2e:once": "start-server-and-test e2e:serve http://localhost:8080 e2e",
+    "serve": "vue-cli-service serve"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
