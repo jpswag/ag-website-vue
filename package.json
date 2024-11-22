@@ -3,6 +3,7 @@
   "version": "2024.08.0",
   "private": true,
   "scripts": {
+    "serve": "vue-cli-service serve",
     "lint": "./static_analysis.bash",
     "build": "vue-cli-service build",
     "test": "python3 run_tests.py",
