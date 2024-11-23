@@ -16,6 +16,12 @@ by running:
 nvm install 16
 ```
 
+Next, install npm dependencies:
+```
+npm ci
+npx playwright install --with-deps
+```
+
 ## Linting and Testing
 To run linters (eslint, Prettier, type checking, etc.):
 ```
