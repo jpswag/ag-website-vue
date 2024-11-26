@@ -11,7 +11,7 @@
       <i class="fa fa-spinner fa-pulse"></i>
     </div>
     <template v-else>
-      <div id="banner">
+      <div role="banner" id="banner">
         <div id="breadcrumbs">
           <router-link to="/" id="home-logo">
             Autograder.io
@@ -52,13 +52,15 @@
           </template>
         </div>
         <div id="right-side-icons">
-          <a id="github-icon" class="icon"
+          <a id="docs-icon" class="icon"
+              aria-label="documentation"
               target="_blank"
               href="https://eecs-autograder.github.io/autograder.io/">
             <i class="fas fa-book"></i>
           </a>
 
           <a id="github-icon" class="icon"
+              aria-label="GitHub"
               target="_blank"
               href="https://github.com/eecs-autograder/autograder.io">
             <i class="fab fa-github"></i>
@@ -73,11 +75,11 @@
               Sign In
             </button>
           </div>
-          <div v-else class="current-user-dropdown">
-            <div class="dropdown-header">
-              <span class="hello-message"><i class="fas fa-user"></i></span>
+          <div v-else role="menu" class="current-user-dropdown">
+            <div aria-label="open user menu" class="dropdown-header" tabindex="0">
+              <i class="fas fa-user"></i>
             </div>
-            <div class="menu">
+            <div class="menu" aria-label="user menu">
               <div class="greeting">Hi, {{globals.current_user.first_name}}!</div>
               <div class="signed-in-as">Signed in as:</div>
               <div class="username">{{globals.current_user.username}}</div>
@@ -98,14 +100,14 @@
           </div>
         </div>
       </div>
-      <div id="welcome" v-if="globals.current_user === null">
+      <div role="main" id="welcome" v-if="globals.current_user === null">
         <div class="welcome-text">Welcome!</div>
         <button type="button" ref="welcome_login_button" class="blue-button" @click="login">
           Sign In
         </button>
       </div>
       <template v-else>
-        <router-view></router-view>
+        <router-view role="main"></router-view>
       </template>
     </template>
   </div>
@@ -329,7 +331,7 @@ $breadcrumb-font-size: 1.5rem;
   }
 }
 
-#github-icon {
+#github-icon, #docs-icon {
   text-decoration: none;
   color: black;
 }
@@ -356,15 +358,6 @@ $breadcrumb-font-size: 1.5rem;
 
     white-space: nowrap;
     cursor: default;
-  }
-
-  .hello-message {
-    display: none;
-
-    @media only screen and (min-width: 700px) {
-      display: inline-block;
-      padding-right: .375rem;
-    }
   }
 
   .menu {

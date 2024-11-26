@@ -6,7 +6,6 @@ For information about contributing to Autograder.io, see our
 ## Setup
 Follow the [dev stack setup tutorial](https://github.com/eecs-autograder/autograder-full-stack/blob/master/docs/development_setup.md) for the [autograder-full-stack repo](https://github.com/eecs-autograder/autograder-full-stack).
 
-## Dev commands
 Our CI is currently configured to use NodeJS 16.
 The component tests (which now use vitest as their runner) should work with Node 20,
 but `npm run build` (which still uses vue-cli-services) will ONLY work with Node 16
@@ -17,15 +16,45 @@ by running:
 nvm install 16
 ```
 
-To run the component tests:
+Next, install npm dependencies:
 ```
-npm test
+npm ci
+npx playwright install --with-deps
 ```
 
+## Linting and Testing
 To run linters (eslint, Prettier, type checking, etc.):
 ```
 npm run lint
 npm run build
+```
+
+To run the unit tests:
+```
+npm test
+```
+
+We recently started adding end-to-end tests written with Playwright.
+Running them requires building and starting the end-to-end test stack:
+```
+# Build the stack
+docker compose -f e2e_test_stack/docker-compose.yml build
+
+# Start the stack in the foreground
+npm run e2e:serve
+
+# Or start the stack in the background
+npm run e2e:served
+```
+
+To run the e2e tests headless:
+```
+npm run e2e
+```
+
+To run the e2e tests in UI mode:
+```
+npm run e2e -- --ui
 ```
 
 ## Coding Standards
